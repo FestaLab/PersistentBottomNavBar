@@ -23,12 +23,7 @@ class BottomNavStyle3 extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                  child: IconTheme(
-                    data: IconThemeData(size: item.iconSize, color: isSelected ? (item.activeColorSecondary ?? item.activeColorPrimary) : item.inactiveColorPrimary ?? item.activeColorPrimary),
-                    child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
-                  ),
-                ),
+                Expanded(child: isSelected ? item.icon : item.inactiveIcon ?? item.icon),
                 if (item.title == null)
                   const SizedBox.shrink()
                 else
@@ -61,30 +56,6 @@ class BottomNavStyle3 extends StatelessWidget {
       padding: EdgeInsets.only(top: navBarEssentials!.padding?.top ?? 0.0, left: navBarEssentials!.padding?.left ?? MediaQuery.of(context).size.width * 0.05, right: navBarEssentials!.padding?.right ?? MediaQuery.of(context).size.width * 0.05, bottom: navBarEssentials!.padding?.bottom ?? navBarEssentials!.navBarHeight! * 0.1),
       child: Column(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              AnimatedContainer(
-                duration: navBarEssentials!.itemAnimationProperties?.duration ?? const Duration(milliseconds: 300),
-                curve: navBarEssentials!.itemAnimationProperties?.curve ?? Curves.ease,
-                color: Colors.transparent,
-                width: navBarEssentials!.selectedIndex == 0 ? MediaQuery.of(context).size.width * 0.0 : itemWidth * navBarEssentials!.selectedIndex!,
-                height: 4,
-              ),
-              Flexible(
-                child: AnimatedContainer(
-                  duration: navBarEssentials!.itemAnimationProperties?.duration ?? const Duration(milliseconds: 300),
-                  curve: navBarEssentials!.itemAnimationProperties?.curve ?? Curves.ease,
-                  width: itemWidth,
-                  height: 4,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: selectedItemActiveColor,
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                ),
-              )
-            ],
-          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 5),
