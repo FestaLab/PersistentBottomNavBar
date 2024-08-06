@@ -23,12 +23,7 @@ class _BottomNavStyle3 extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                  child: IconTheme(
-                    data: IconThemeData(size: item.iconSize, color: isSelected ? (item.activeColorSecondary ?? item.activeColorPrimary) : item.inactiveColorPrimary ?? item.activeColorPrimary),
-                    child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
-                  ),
-                ),
+                Expanded(child: isSelected ? item.icon : item.inactiveIcon ?? item.icon),
                 if (item.title == null)
                   const SizedBox.shrink()
                 else
@@ -64,30 +59,6 @@ class _BottomNavStyle3 extends StatelessWidget {
       padding: navBarEssentials.padding,
       child: Column(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              AnimatedContainer(
-                duration: navBarEssentials.itemAnimationProperties.duration,
-                curve: navBarEssentials.itemAnimationProperties.curve,
-                color: Colors.transparent,
-                width: navBarEssentials.selectedIndex == 0 ? MediaQuery.of(context).size.width * 0.0 : itemWidth * navBarEssentials.selectedIndex,
-                height: 4,
-              ),
-              Flexible(
-                child: AnimatedContainer(
-                  duration: navBarEssentials.itemAnimationProperties.duration,
-                  curve: navBarEssentials.itemAnimationProperties.curve,
-                  width: itemWidth,
-                  height: 4,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: selectedItemActiveColor,
-                    borderRadius: BorderRadius.circular(100),
-                  ),
-                ),
-              )
-            ],
-          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 5),
