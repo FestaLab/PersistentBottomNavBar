@@ -28,7 +28,7 @@ class _BottomNavStyle3 extends StatelessWidget {
                   const SizedBox.shrink()
                 else
                   Padding(
-                    padding: const EdgeInsets.only(top: 15),
+                    padding: const EdgeInsets.only(bottom: 6),
                     child: Material(
                       type: MaterialType.transparency,
                       child: DefaultTextStyle.merge(
